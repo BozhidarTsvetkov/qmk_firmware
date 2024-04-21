@@ -22,9 +22,9 @@ enum layers {
 #define ___UPPER2___ HRML(KC_CAPS, KC_F11, KC_F12, KC_NO), KC_NO, KC_NO, HRMR(KC_NO, KC_NO, KC_NO, KC_QUOT)
 #define ___UPPER3___ KC_GRV, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL
 
-#define ___ADJUST1___ KC_MUTE, KC_VOLD, KC_VOLU, KC_BRID, KC_BRIU, KC_BTN1, KC_WH_U, KC_BTN2, KC_NO, KC_NO
-#define ___ADJUST2___ KC_MPLY, KC_MPRV, KC_MNXT, KC_BTN1, KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO
-#define ___ADJUST3___ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_R, KC_NO, KC_NO
+#define ___ADJUST1___ KC_MUTE, KC_VOLD, KC_VOLU, KC_BRID, KC_BRIU, KC_NO, KC_BTN1, KC_WH_U, KC_BTN2, KC_NO
+#define ___ADJUST2___ KC_MPLY, KC_MPRV, KC_MNXT, KC_BTN1, KC_BTN2, KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R
+#define ___ADJUST3___ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_R, KC_NO
 
 #define LAYOUT_bozho(...)     LAYOUT(__VA_ARGS__)
 
@@ -77,13 +77,13 @@ ___UPPER3___,
             ),
     [_ADJUST] = LAYOUT_bozho(  // Tri (or "adjust") layer
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//│  Mute    │Vol Down  │Vol Up    │BrightDown│BrightUp  │   │  Mouse 1 │Wheel up  │Mouse2    │  No      │  NO      │
+//│  Mute    │Vol Down  │Vol Up    │BrightDown│BrightUp  │   │  NO      │ Mouse1   │Wheel Up  │ Mouse 2  │  NO      │
 ___ADJUST1___,
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│Play/Pause│Prev Song │Next Song │Mouse 1`  │Mouse 2   │   │Mouse <-  │Mouse V   │Mouse ^   │Mouse ->  │   NO     │
+//│Play/Pause│Prev Song │Next Song │Mouse 1`  │Mouse 2   │   │  NO      │Mouse <-  │Mouse V   │Mouse ^   │ Mouse -> │
 ___ADJUST2___,
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│ NO       │  NO      │ NO       │  NO      │  NO      │   │Wheel left│Wheel Down│Wheel Rght│  NO      │ NO       │
+//│ NO       │  NO      │ NO       │  NO      │  NO      │   │  NO      │Wheel Left│Wheel Down│Wheel Rght│ NO       │
 ___ADJUST3___,
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                      KC_NO,     KC_NO,         KC_NO,      KC_NO
