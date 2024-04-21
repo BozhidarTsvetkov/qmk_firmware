@@ -41,8 +41,8 @@ ___BASE2___,
 ___BASE3___,
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
 
-                            LT(_LOWER, KC_ESC),  KC_SPC,       KC_BSPC,LT(_UPPER,KC_ENT)
-//                                 │ESC or L1 │  Space   │   │ Backspace│ENT or L2 │
+                            LT(_LOWER, KC_ESC),  KC_BSPC,       KC_SPC,LT(_UPPER,KC_ENT)
+//                                 │ESC or L1 │ Backspace│   │ Space    │ENT or L2 │
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             ),
     [_LOWER] = LAYOUT_bozho(  // Left (or "lower") layer
