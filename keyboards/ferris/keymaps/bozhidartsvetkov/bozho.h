@@ -1,0 +1,84 @@
+#pragma once
+#include QMK_KEYBOARD_H
+
+// tap dance declarations
+enum tapdances {
+    TD_QUOT_DQT,
+    TD_BSLS_PIPE,
+    TD_CBKT,
+    TD_BRKT
+};
+
+enum combos {
+  TY_COLN,
+  GH_QUOT,
+  BN_UNDS,
+  RU_BSLS_PIPE,
+  FJ_CAPS,
+  VM_MINS,
+  EI_PLUS,
+  DK_EQL,
+  ER_CBKT,
+  UI_BRKT
+};
+
+enum layers {
+  _BASE,
+  _LOWER,
+  _UPPER,
+  _ADJUST
+};
+
+// tap dance definitios
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_QUOT_DQT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQUO),
+    [TD_BSLS_PIPE] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS, KC_PIPE),
+    [TD_CBKT] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR, KC_RCBR),
+    [TD_BRKT] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC)
+};
+
+const uint16_t PROGMEM ty_combo[] = {KC_T, KC_Y, COMBO_END};
+const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
+const uint16_t PROGMEM bn_combo[] = {KC_B, KC_N, COMBO_END};
+const uint16_t PROGMEM ru_combo[] = {KC_R, KC_U, COMBO_END};
+const uint16_t PROGMEM fj_combo[] = {LSFT_T(KC_F), RSFT_T(KC_J), COMBO_END};
+const uint16_t PROGMEM vm_combo[] = {KC_V, KC_M, COMBO_END};
+const uint16_t PROGMEM ei_combo[] = {KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM dk_combo[] = {LCTL_T(KC_D), RCTL_T(KC_K), COMBO_END};
+const uint16_t PROGMEM er_combo[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
+
+combo_t key_combos[] = {
+  [TY_COLN] = COMBO(ty_combo, KC_COLN),
+  [GH_QUOT] = COMBO(gh_combo, TD(TD_QUOT_DQT)),
+  [BN_UNDS] = COMBO(bn_combo, KC_UNDS),
+  [RU_BSLS_PIPE] = COMBO(ru_combo, TD(TD_BSLS_PIPE)),
+  [FJ_CAPS] = COMBO(fj_combo, KC_CAPS),
+  [VM_MINS] = COMBO(vm_combo, KC_MINS),
+  [EI_PLUS] = COMBO(ei_combo, KC_PLUS),
+  [DK_EQL] = COMBO(dk_combo, KC_EQL),
+  [ER_CBKT] = COMBO(er_combo, TD(TD_CBKT)),
+  [UI_BRKT] = COMBO(ui_combo, TD(TD_BRKT))
+};
+
+#define HRML(k1,k2,k3,k4) LALT_T(k1),LGUI_T(k2),LCTL_T(k3),LSFT_T(k4)
+#define HRMR(k1,k2,k3,k4) RSFT_T(k1),RCTL_T(k2),RGUI_T(k3),RALT_T(k4)
+
+#define ___BASE1___ KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P
+#define ___BASE2___ HRML(KC_A, KC_S, KC_D, KC_F), KC_G, KC_H, HRMR(KC_J, KC_K, KC_L, KC_SCLN)
+#define ___BASE3___ KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH
+
+#define ___LOWER1___ KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0
+#define ___LOWER2___ HRML(KC_NO, KC_NO, KC_NO, KC_NO), KC_NO, KC_LEFT, HRMR(KC_DOWN, KC_UP, KC_RGHT, KC_NO)
+#define ___LOWER3___ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_BSLS
+
+#define ___UPPER1___ KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10
+#define ___UPPER2___ HRML(KC_F11, KC_F12, KC_NO, KC_NO), KC_NO, KC_NO, HRMR(KC_NO, KC_NO, KC_NO, KC_QUOT)
+#define ___UPPER3___ KC_GRV, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL
+
+#define ___ADJUST1___ KC_MUTE, KC_VOLD, KC_VOLU, KC_BRID, KC_BRIU, KC_NO, KC_BTN1, KC_WH_U, KC_BTN2, KC_NO
+#define ___ADJUST2___ KC_MPLY, KC_MPRV, KC_MNXT, KC_BTN1, KC_BTN2, KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R
+#define ___ADJUST3___ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_R, KC_NO
+
+#define LAYOUT_bozho(...)     LAYOUT(__VA_ARGS__)
+

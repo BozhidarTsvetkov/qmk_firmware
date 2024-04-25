@@ -38,4 +38,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 220
 #define PERMISSIVE_HOLD
 #define QUICK_TAP_TERM 0
+#define COMBO_TERM 60
+#define ENABLE_COMPILE_KEYCODE
 
