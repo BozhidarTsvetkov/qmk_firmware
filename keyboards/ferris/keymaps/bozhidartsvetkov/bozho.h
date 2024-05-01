@@ -6,7 +6,8 @@ enum tapdances {
     TD_QUOT_DQT,
     TD_BSLS_PIPE,
     TD_CBKT,
-    TD_BRKT
+    TD_BRKT,
+    TD_PRN
 };
 
 enum combos {
@@ -16,10 +17,11 @@ enum combos {
   RU_BSLS_PIPE,
   FJ_CAPS,
   VM_MINS,
-  EI_PLUS,
-  DK_EQL,
-  ER_CBKT,
-  UI_BRKT
+  EI_PRN,
+  DK_CBKT,
+  CCOM_BRKT,
+  WO_PLUS,
+  SL_EQL
 };
 
 enum layers {
@@ -33,6 +35,7 @@ enum layers {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_QUOT_DQT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQUO),
     [TD_BSLS_PIPE] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS, KC_PIPE),
+    [TD_PRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
     [TD_CBKT] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR, KC_RCBR),
     [TD_BRKT] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC)
 };
@@ -45,8 +48,9 @@ const uint16_t PROGMEM fj_combo[] = {LSFT_T(KC_F), RSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM vm_combo[] = {KC_V, KC_M, COMBO_END};
 const uint16_t PROGMEM ei_combo[] = {KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM dk_combo[] = {LCTL_T(KC_D), RCTL_T(KC_K), COMBO_END};
-const uint16_t PROGMEM er_combo[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM ccom_combo[] = {KC_C, KC_COMM, COMBO_END};
+const uint16_t PROGMEM wo_combo[] = {KC_W, KC_O, COMBO_END};
+const uint16_t PROGMEM sl_combo[] = {LGUI_T(KC_S), RGUI_T(KC_L), COMBO_END};
 
 combo_t key_combos[] = {
   [TY_COLN] = COMBO(ty_combo, KC_COLN),
@@ -55,10 +59,11 @@ combo_t key_combos[] = {
   [RU_BSLS_PIPE] = COMBO(ru_combo, TD(TD_BSLS_PIPE)),
   [FJ_CAPS] = COMBO(fj_combo, KC_CAPS),
   [VM_MINS] = COMBO(vm_combo, KC_MINS),
-  [EI_PLUS] = COMBO(ei_combo, KC_PLUS),
-  [DK_EQL] = COMBO(dk_combo, KC_EQL),
-  [ER_CBKT] = COMBO(er_combo, TD(TD_CBKT)),
-  [UI_BRKT] = COMBO(ui_combo, TD(TD_BRKT))
+  [EI_PRN] = COMBO(ei_combo, TD(TD_PRN)),
+  [DK_CBKT] = COMBO(dk_combo, TD(TD_CBKT)),
+  [CCOM_BRKT] = COMBO(ccom_combo, TD(TD_BRKT)),
+  [WO_PLUS] = COMBO(wo_combo, KC_PLUS),
+  [SL_EQL] = COMBO(sl_combo, KC_EQL)
 };
 
 #define HRML(k1,k2,k3,k4) LALT_T(k1),LGUI_T(k2),LCTL_T(k3),LSFT_T(k4)
@@ -73,8 +78,8 @@ combo_t key_combos[] = {
 #define ___LOWER3___ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_BSLS
 
 #define ___UPPER1___ KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10
-#define ___UPPER2___ HRML(KC_F11, KC_F12, KC_NO, KC_NO), KC_NO, KC_NO, HRMR(KC_NO, KC_NO, KC_NO, KC_QUOT)
-#define ___UPPER3___ KC_GRV, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL
+#define ___UPPER2___ HRML(KC_F11, KC_F12, KC_NO, KC_NO), KC_NO, KC_MINS, HRMR(KC_EQL, KC_LBRC, KC_RBRC, KC_QUOT)
+#define ___UPPER3___ KC_GRV, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
 
 #define ___ADJUST1___ KC_MUTE, KC_VOLD, KC_VOLU, KC_BRID, KC_BRIU, KC_NO, KC_BTN1, KC_WH_U, KC_BTN2, KC_NO
 #define ___ADJUST2___ KC_MPLY, KC_MPRV, KC_MNXT, KC_BTN1, KC_BTN2, KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R

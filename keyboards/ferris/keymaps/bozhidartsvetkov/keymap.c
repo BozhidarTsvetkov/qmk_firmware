@@ -38,10 +38,10 @@ ___LOWER3___,
 //│  F1      │  F2      │  F3      │  F4      │  F5      │   │  F6      │  F7      │  F8      │  F9      │  F10     │
 ___UPPER1___,
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│ F11 or AT│F12 or GUI│ NO or CTL│NO or SHFT│  NO      │   │   NO     │NO or SHFT│NO or CTL │NO or GUI │' and " or ALT│
+//│ F11 or AT│F12 or GUI│ NO or CTL│NO or SHFT│  NO      │   │ - or _   │= and +SFT│[ and { CT│] and }GUI│' and " or ALT│
 ___UPPER2___,
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//│ ` and ~  │ [ and {  │ ] and }  │  NO      │  NO      │   │NO        │NO        │NO        │ - and _  │ = and +  │
+//│ ` and ~  │ NO       │ NO       │  NO      │  NO      │   │NO        │NO        │NO        │ NO       │ NO       │
 ___UPPER3___,
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                               LT(_ADJUST,KC_NO),  KC_NO,       KC_NO,      KC_NO
@@ -72,6 +72,8 @@ ___ADJUST3___,
 // F + J = CAPS
 // V + M = -
 // B + N = _
-// E + I = +
-// D + K = = (equals)
-// E + R = { or }, tap dance
+// E + I = ( or ), tap dance
+// D + K = { or }, tap dance
+// C + , = [ or ], tap dance
+// W + O = +
+// S + L = =
